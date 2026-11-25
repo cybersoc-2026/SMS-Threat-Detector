@@ -1,0 +1,26 @@
+{
+  "repository": "anmolshrivastav/scam_ham_india_14_languages",
+  "train_rows": 12600,
+  "test_rows": 1400,
+  "train_unique_exact_keys": 11630,
+  "test_unique_exact_keys": 1346,
+  "exact_normalized_overlap_unique_messages": 87,
+  "test_rows_with_exact_train_match": 139,
+  "exact_cross_split_pair_count": 2234,
+  "exact_match_label_disagreements": 0,
+  "near_duplicate_test_rows_by_similarity_threshold": {
+    "0.8": 1086,
+    "0.85": 948,
+    "0.9": 806,
+    "0.95": 590
+  },
+  "listed_near_duplicate_test_rows_threshold": 0.85,
+  "listed_near_duplicate_rows": 948,
+  "within_train_duplicate_rows": 1220,
+  "within_test_duplicate_rows": 78,
+  "important_note": "Character n-gram cosine similarity is a heuristic. Review candidate pairs manually; high similarity does not automatically prove leakage.",
+  "outputs": {
+    "cross_split_candidates_csv": "reports\\multilingual_train_test_near_duplicates.csv",
+    "within_split_duplicates_csv": "reports\\multilingual_within_split_duplicates.csv"
+  }
+}

@@ -1,0 +1,92 @@
+{
+ "raw_batches": 195,
+ "raw_messages": 1950,
+ "kept_after_generator_filters": 1654,
+ "rows": 1580,
+ "label": {
+  "scam": 797,
+  "safe": 783
+ },
+ "original_label": {
+  "safe": 814,
+  "scam": 766
+ },
+ "by_generator": {
+  "gemini/gemini-3.5-flash-lite": {
+   "safe": 431,
+   "scam": 430
+  },
+  "gemini/gemini-3.7-flash": {
+   "safe": 9,
+   "scam": 10
+  },
+  "groq/openai/gpt-oss-120b": {
+   "safe": 343,
+   "scam": 357
+  }
+ },
+ "by_language": {
+  "hinglish": 639,
+  "en": 262,
+  "hi": 167,
+  "bn_en": 135,
+  "mr_en": 127,
+  "te_en": 125,
+  "ta_en": 125
+ },
+ "by_topic": {
+  "courier_customs": {
+   "safe": 87,
+   "scam": 112
+  },
+  "electricity_bill": {
+   "safe": 89,
+   "scam": 119
+  },
+  "everyday": {
+   "safe": 104,
+   "scam": 2
+  },
+  "fake_bank_otp": {
+   "safe": 99,
+   "scam": 114
+  },
+  "fake_kyc": {
+   "safe": 101,
+   "scam": 110
+  },
+  "job_offer": {
+   "safe": 98,
+   "scam": 112
+  },
+  "loan_offer": {
+   "safe": 104,
+   "scam": 115
+  },
+  "lottery": {
+   "safe": 101,
+   "scam": 113
+  }
+ },
+ "audit_action": {
+  "unreviewed": 1350,
+  "keep": 195,
+  "flip": 35
+ },
+ "reviewed": 304,
+ "removed": 74,
+ "flipped": 35,
+ "flipped_safe_to_scam": 33,
+ "flipped_scam_to_safe": 2,
+ "reviewed_in_draft": 262,
+ "added_by_rule_scan": 42,
+ "kept_in_draft_then_removed": 10,
+ "triage_rows": 162,
+ "control_rows": 100,
+ "length_chars": {
+  "mean": 141.9,
+  "min": 57.0,
+  "50%": 137.0,
+  "max": 422.0
+ }
+}

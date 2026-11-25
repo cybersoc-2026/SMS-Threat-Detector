@@ -1,0 +1,27 @@
+{
+  "source": "Preliminary experiment run on uploaded Dataset.csv in assistant environment",
+  "deduplicated_rows": 115231,
+  "numeric_features": 22,
+  "train_rows": 92184,
+  "test_rows": 23047,
+  "accuracy": 0.9824,
+  "phishing_precision": 0.9622,
+  "phishing_recall": 0.9135,
+  "phishing_f1": 0.9372,
+  "roc_auc": 0.9948664943437465,
+  "confusion_matrix_order": [
+    "Legitimate (0)",
+    "Phishing (1)"
+  ],
+  "confusion_matrix": [
+    [
+      19610,
+      119
+    ],
+    [
+      287,
+      3031
+    ]
+  ],
+  "note": "Preliminary baseline only; your local run may differ slightly due to package versions."
+}

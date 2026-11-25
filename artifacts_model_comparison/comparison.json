@@ -1,0 +1,95 @@
+{
+  "dataset": "harshcasper/bsis",
+  "test_split": "datasets/raw/bsis/classifier/test-00000-of-00001.parquet",
+  "tfidf": {
+    "artifact": "artifacts_bsis/bsis_scam_tfidf.joblib",
+    "metrics": {
+      "rows": 1883,
+      "threshold": 0.189108,
+      "accuracy": 0.816251,
+      "safe_precision": 0.864641,
+      "safe_recall": 0.513115,
+      "scam_precision": 0.804734,
+      "scam_recall": 0.961508,
+      "scam_f1": 0.876163,
+      "confusion_matrix": [
+        [
+          313,
+          297
+        ],
+        [
+          49,
+          1224
+        ]
+      ],
+      "roc_auc": 0.835593
+    },
+    "inference": {
+      "rows": 1883,
+      "repeats": 3,
+      "mean_batch_ms": 3476.267,
+      "median_batch_ms": 2850.428,
+      "mean_ms_per_message": 1.846132
+    }
+  },
+  "xlmr": {
+    "model": "harshcasper/bsis-xlmr-scam-classifier",
+    "metrics": {
+      "rows": 1883,
+      "threshold": 0.45,
+      "accuracy": 0.817313,
+      "safe_precision": 0.755769,
+      "safe_recall": 0.644262,
+      "scam_precision": 0.840792,
+      "scam_recall": 0.900236,
+      "scam_f1": 0.869499,
+      "confusion_matrix": [
+        [
+          393,
+          217
+        ],
+        [
+          127,
+          1146
+        ]
+      ],
+      "roc_auc": 0.868001
+    },
+    "inference": {
+      "rows": 1883,
+      "repeats": 3,
+      "mean_batch_ms": 753273.721,
+      "median_batch_ms": 697057.856,
+      "mean_ms_per_message": 400.039151
+    }
+  },
+  "curated_examples": [
+    {
+      "text": "Came across a quiet discussion space during the day, one note showed Rs 23,400. https://kusiion.us/rsG36Q",
+      "tfidf_scam_probability": 0.05011,
+      "tfidf_prediction": "safe",
+      "xlmr_scam_probability": 0.588478,
+      "xlmr_prediction": "scam"
+    },
+    {
+      "text": "How romantic and healthy is your relationship with your partner? Find out with Mayana's Compatibility Forecast on WhatsApp for FREE. Chat here https://wa.me/917065462094?text=Hi",
+      "tfidf_scam_probability": 0.164366,
+      "tfidf_prediction": "safe",
+      "xlmr_scam_probability": 0.742619,
+      "xlmr_prediction": "scam"
+    },
+    {
+      "text": "Bhai, naya number hai mera, airport phans gaya hu, 5000 bhej de",
+      "tfidf_scam_probability": 0.913704,
+      "tfidf_prediction": "scam",
+      "xlmr_scam_probability": 0.973647,
+      "xlmr_prediction": "scam"
+    }
+  ],
+  "hardware": {
+    "torch_device": "cpu",
+    "python": "3.14.8",
+    "torch": "2.15.0+cpu"
+  },
+  "caveat": "XLM-R metrics here are measured locally on the BSIS test split; they should not be compared to a separate unpublished held-out set without knowing the exact provenance."
+}

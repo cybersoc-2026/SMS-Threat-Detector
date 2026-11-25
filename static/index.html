@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THREAT LENS · Bharat AI SoC</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" width="38" height="38" aria-hidden="true">
+        <circle cx="14" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="14" cy="14" r="3" fill="currentColor"/>
+        <path d="M21 21l7 7M14 1.5v3M14 23.5v3M1.5 14h3M23.5 14h3" fill="none"
+          stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1>THREAT LENS</h1>
+        <p class="sub">SMS scam detector · Bharat AI SoC</p>
+      </div>
+    </div>
+    <div class="top-right">
+      <span class="link"><i id="linkLed" class="dot"></i><span id="linkTxt">Checking service…</span></span>
+      <button id="gear" class="btn small" type="button">Settings</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="box">
+      <h2>Input box</h2>
+      <form id="analysis-form">
+        <label class="sr-only" for="message">SMS message</label>
+        <textarea id="message" name="message" rows="6" maxlength="2000"
+          placeholder="Paste the SMS / message here" required></textarea>
+        <div class="row">
+          <label class="sr-only" for="lang">Explanation language</label>
+          <select id="lang" name="lang" class="lang" title="Explanation language">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+          </select>
+          <button id="submit" class="btn primary" type="submit">Analyze</button>
+          <button id="clear" class="btn" type="button">Clear</button>
+          <span class="chars"><span id="chars">0</span>/2000</span>
+        </div>
+        <p id="error" class="status err" role="alert" hidden></p>
+        <p id="progress" class="status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+
+    <section class="box">
+      <h2>Threat</h2>
+      <div class="center">
+        <div id="dial" class="dial idle" role="img" aria-label="No message analyzed">
+          <span class="half yes">Yes</span><span class="half no">No</span>
+        </div>
+        <div id="verdictTxt" class="verdict-txt">Awaiting analysis</div>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2>Type of threat</h2>
+      <div class="center">
+        <svg id="pie" viewBox="0 0 180 180" role="img"
+          aria-label="Threat categories: SMS, URL, Network"></svg>
+      </div>
+    </section>
+
+    <section class="box fill">
+      <h2>Classification of threat</h2>
+      <span class="lbl">Assessment</span>
+      <p id="description" class="well muted">Analyze a message to see its assessment.</p>
+      <span class="lbl reasons-label">Signals</span>
+      <ul id="reasons" class="well list-well"><li class="muted">No signals yet.</li></ul>
+      <span class="lbl">Advisory explanation</span>
+      <p id="explanation" class="well" aria-live="polite">The explanation will appear here.</p>
+      <p id="explanation-source" class="muted small"></p>
+    </section>
+
+    <section class="box">
+      <h2>Risk score</h2>
+      <div class="gauge">
+        <svg id="gauge" viewBox="0 0 200 118" role="img" aria-label="Risk score gauge"></svg>
+        <div class="gauge-value"><span id="riskScore" class="score">—</span><span class="out-of">/ 100</span></div>
+        <span id="score-caption" class="muted small">Heuristic evidence score</span>
+      </div>
+    </section>
+
+    <section class="box span-rows fill">
+      <h2>Data log</h2>
+      <div class="fill-center">
+        <svg id="bar" viewBox="0 0 340 250" role="img"
+          aria-label="Scans by category during this session"></svg>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2>Inference throughput</h2>
+      <div class="metrics">
+        <div class="metric"><span id="inference-time" class="metric-value">—</span><span class="metric-label">Inference time</span></div>
+        <div class="metric"><span id="analysis-time" class="metric-value">—</span><span class="metric-label">Analysis API round-trip</span></div>
+        <div class="metric"><span id="output-tokens" class="metric-value">—</span><span class="metric-label">Output tokens (est.)</span></div>
+        <div class="metric"><span id="token-rate" class="metric-value">—</span><span class="metric-label">Generation rate (est. tok/s)</span></div>
+      </div>
+      <p id="metric-note" class="metric-note">Metrics appear after a scan. Token counts are estimated from generated text.</p>
+    </section>
+
+    <section class="box span-rows fill">
+      <h2>Recommended action</h2>
+      <p id="action" class="well">An action will appear after analysis.</p>
+      <p id="disclaimer" class="muted small disclaimer"></p>
+    </section>
+
+    <section class="box">
+      <h2>No. of threats detected</h2>
+      <div id="odo" class="bignum">0</div>
+      <p class="muted small center-txt">This session</p>
+    </section>
+
+    <section class="box full">
+      <h2>Recent scans <span id="histNote" class="muted small"></span></h2>
+      <div class="table-wrap">
+        <table id="history">
+          <thead><tr><th>Time</th><th>Type</th><th>Message</th></tr></thead>
+          <tbody><tr><td class="empty" colspan="3">No scans yet.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="drawer" class="drawer" hidden aria-label="Settings">
+    <div class="drawer-head"><h2>Settings</h2><button id="closeDrawer" class="btn small" type="button">Close</button></div>
+    <label class="f">Test messages
+      <select id="sample">
+        <option value="">Choose a test message…</option>
+        <option value="scam">SMS: urgent account verification</option>
+        <option value="url">Suspicious link</option>
+        <option value="safe">Safe: everyday message</option>
+      </select>
+    </label>
+    <p id="drawerInfo" class="muted small">Analysis history is kept in memory for this session only.</p>
+    <div class="drawer-btns">
+      <button id="recheck" class="btn" type="button">Re-check service</button>
+      <button id="clearHistory" class="btn" type="button">Clear session history</button>
+    </div>
+  </aside>
+</body>
+</html>

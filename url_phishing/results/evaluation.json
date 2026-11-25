@@ -1,0 +1,75 @@
+{
+  "dataset_rows_after_deduplication": 115231,
+  "feature_count": 22,
+  "features": [
+    "url_len",
+    "dom_len",
+    "is_ip",
+    "tld_len",
+    "subdom_cnt",
+    "letter_cnt",
+    "digit_cnt",
+    "special_cnt",
+    "eq_cnt",
+    "qm_cnt",
+    "amp_cnt",
+    "dot_cnt",
+    "dash_cnt",
+    "under_cnt",
+    "letter_ratio",
+    "digit_ratio",
+    "spec_ratio",
+    "is_https",
+    "slash_cnt",
+    "entropy",
+    "path_len",
+    "query_len"
+  ],
+  "train_rows": 92184,
+  "test_rows": 23047,
+  "accuracy": 0.982513993144444,
+  "roc_auc": 0.9948005312246155,
+  "average_precision": 0.980376280422414,
+  "confusion_matrix_labels_order": [
+    "Legitimate (0)",
+    "Phishing (1)"
+  ],
+  "confusion_matrix": [
+    [
+      19614,
+      115
+    ],
+    [
+      288,
+      3030
+    ]
+  ],
+  "classification_report": {
+    "Legitimate (0)": {
+      "precision": 0.9855290925535122,
+      "recall": 0.9941710172842009,
+      "f1-score": 0.9898311927531478,
+      "support": 19729.0
+    },
+    "Phishing (1)": {
+      "precision": 0.9634340222575517,
+      "recall": 0.9132007233273056,
+      "f1-score": 0.937645056475321,
+      "support": 3318.0
+    },
+    "accuracy": 0.982513993144444,
+    "macro avg": {
+      "precision": 0.9744815574055319,
+      "recall": 0.9536858703057532,
+      "f1-score": 0.9637381246142345,
+      "support": 23047.0
+    },
+    "weighted avg": {
+      "precision": 0.9823481387095412,
+      "recall": 0.982513993144444,
+      "f1-score": 0.9823181281386717,
+      "support": 23047.0
+    }
+  },
+  "note": "Internal random stratified holdout from this dataset; not a guarantee of real-world performance."
+}

@@ -1,0 +1,66 @@
+{
+  "purpose": "Raw source datasets for the offline Indian SMS spam/scam detection project",
+  "organization_policy": "Keep raw files unchanged; put cleaned/processed data outside raw/",
+  "sources": [
+    {
+      "id": "bhavya2910_indian_scam_sms_synthetic_audited",
+      "status": "downloaded",
+      "files": [
+        "README.md",
+        "stats.json",
+        "label_rubric.md",
+        "audit_decisions.csv",
+        "data/synthetic_audited.csv"
+      ],
+      "notes": "Synthetic audited Indian SMS supplement. 797 scam and 783 safe rows; partial AI/author audit. Training-only augmentation.",
+      "url": "https://huggingface.co/datasets/bhavya2910/indian-scam-sms-synthetic-audited"
+    },
+    {
+      "id": "harshcasper_bsis",
+      "status": "downloaded",
+      "files": [
+        "README.md",
+        "stats.json",
+        "classifier/train-00000-of-00001.parquet",
+        "classifier/validation-00000-of-00001.parquet",
+        "classifier/test-00000-of-00001.parquet"
+      ],
+      "notes": "Synthetic multilingual scam/safe classifier benchmark; published train/validation/test splits are lineage-grouped.",
+      "url": "https://huggingface.co/datasets/harshcasper/bsis"
+    },
+    {
+      "id": "uci_sms_spam_collection",
+      "status": "not_found_in_current_workspace",
+      "expected_file": "SMSSpamCollection or downloaded UCI archive",
+      "url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection"
+    },
+    {
+      "id": "iiitd_sms_2011_2012",
+      "status": "copied",
+      "files": [
+        "IIIT-D_SMS_Dataset.zip"
+      ],
+      "notes": "Original ZIP preserved; source README identifies it as Spam SMS dataset 2011-12."
+    },
+    {
+      "id": "junioralive_india_sms",
+      "status": "not_found_in_current_workspace",
+      "expected_file": "CSV or repository export",
+      "url": "https://github.com/junioralive/india-spam-sms-classification"
+    },
+    {
+      "id": "cloveai_india_spam_sms",
+      "status": "copied",
+      "files": [
+        "cloveai_sms.csv"
+      ],
+      "notes": "Existing CSV preserved; previously used columns: text,label."
+    },
+    {
+      "id": "carnageiron_scam_ham_india",
+      "status": "pending_download",
+      "expected_file": "scam_hum_india.csv",
+      "url": "https://huggingface.co/datasets/carnageiron/scam-ham-india"
+    }
+  ]
+}

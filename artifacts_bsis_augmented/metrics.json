@@ -1,0 +1,800 @@
+{
+  "dataset": "harshcasper/bsis",
+  "dataset_role": "synthetic, lineage-grouped classifier benchmark",
+  "task": "binary_scam_vs_safe",
+  "label_mapping": {
+    "0": "safe",
+    "1": "scam"
+  },
+  "decision_threshold": 0.20190004156470828,
+  "threshold_selection": {
+    "set": "validation",
+    "objective": "maximize validation F2 while meeting minimum scam precision",
+    "minimum_scam_precision": 0.75,
+    "precision": 0.7510324483775811,
+    "recall": 0.9769762087490407,
+    "f2": 0.9215288837411322
+  },
+  "model": {
+    "features": "word TF-IDF 1-2 grams + char_wb TF-IDF 3-5 grams",
+    "classifier": "LogisticRegression(C=10, class_weight=balanced)",
+    "artifact_format": "joblib"
+  },
+  "rows": {
+    "train": 34347,
+    "validation": 2148,
+    "test": 1883
+  },
+  "training_augmentation": {
+    "enabled": true,
+    "dataset": "bhavya2910/indian-scam-sms-synthetic-audited",
+    "rows_added": 1580,
+    "rows_removed_due_to_bsis_overlap": 0,
+    "conflicting_exact_text_groups": 5,
+    "role": "training-only supplement; never used for validation or BSIS test"
+  },
+  "validation": {
+    "dataset": "bsis_validation",
+    "rows": 2148,
+    "threshold": 0.2019,
+    "accuracy": 0.789572,
+    "roc_auc": 0.865219,
+    "safe": {
+      "precision": 0.933775,
+      "recall": 0.500592,
+      "f1": 0.651772,
+      "support": 845
+    },
+    "scam": {
+      "precision": 0.751032,
+      "recall": 0.976976,
+      "f1": 0.849233,
+      "f2": 0.921529,
+      "support": 1303
+    },
+    "confusion_matrix": [
+      [
+        423,
+        422
+      ],
+      [
+        30,
+        1273
+      ]
+    ],
+    "confusion_matrix_order": [
+      "safe",
+      "scam"
+    ]
+  },
+  "test": {
+    "dataset": "bsis_test",
+    "rows": 1883,
+    "threshold": 0.2019,
+    "accuracy": 0.817844,
+    "roc_auc": 0.83468,
+    "safe": {
+      "precision": 0.856,
+      "recall": 0.52623,
+      "f1": 0.651777,
+      "support": 610
+    },
+    "scam": {
+      "precision": 0.808355,
+      "recall": 0.957581,
+      "f1": 0.876663,
+      "f2": 0.923485,
+      "support": 1273
+    },
+    "confusion_matrix": [
+      [
+        321,
+        289
+      ],
+      [
+        54,
+        1219
+      ]
+    ],
+    "confusion_matrix_order": [
+      "safe",
+      "scam"
+    ]
+  },
+  "test_per_language": {
+    "as-IN": {
+      "rows": 89,
+      "scam_precision": 0.884615,
+      "scam_recall": 0.958333,
+      "scam_f1": 0.92,
+      "scam_support": 72,
+      "confusion_matrix": [
+        [
+          8,
+          9
+        ],
+        [
+          3,
+          69
+        ]
+      ]
+    },
+    "bn-IN": {
+      "rows": 153,
+      "scam_precision": 0.75,
+      "scam_recall": 0.958763,
+      "scam_f1": 0.841629,
+      "scam_support": 97,
+      "confusion_matrix": [
+        [
+          25,
+          31
+        ],
+        [
+          4,
+          93
+        ]
+      ]
+    },
+    "brx-IN": {
+      "rows": 61,
+      "scam_precision": 0.877551,
+      "scam_recall": 0.955556,
+      "scam_f1": 0.914894,
+      "scam_support": 45,
+      "confusion_matrix": [
+        [
+          10,
+          6
+        ],
+        [
+          2,
+          43
+        ]
+      ]
+    },
+    "doi-IN": {
+      "rows": 58,
+      "scam_precision": 0.880952,
+      "scam_recall": 0.902439,
+      "scam_f1": 0.891566,
+      "scam_support": 41,
+      "confusion_matrix": [
+        [
+          12,
+          5
+        ],
+        [
+          4,
+          37
+        ]
+      ]
+    },
+    "en-IN": {
+      "rows": 118,
+      "scam_precision": 0.806122,
+      "scam_recall": 0.9875,
+      "scam_f1": 0.88764,
+      "scam_support": 80,
+      "confusion_matrix": [
+        [
+          19,
+          19
+        ],
+        [
+          1,
+          79
+        ]
+      ]
+    },
+    "gu-IN": {
+      "rows": 73,
+      "scam_precision": 0.820896,
+      "scam_recall": 0.982143,
+      "scam_f1": 0.894309,
+      "scam_support": 56,
+      "confusion_matrix": [
+        [
+          5,
+          12
+        ],
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    "hi-IN": {
+      "rows": 224,
+      "scam_precision": 0.761905,
+      "scam_recall": 0.948148,
+      "scam_f1": 0.844884,
+      "scam_support": 135,
+      "confusion_matrix": [
+        [
+          49,
+          40
+        ],
+        [
+          7,
+          128
+        ]
+      ]
+    },
+    "kn-IN": {
+      "rows": 68,
+      "scam_precision": 0.847458,
+      "scam_recall": 0.943396,
+      "scam_f1": 0.892857,
+      "scam_support": 53,
+      "confusion_matrix": [
+        [
+          6,
+          9
+        ],
+        [
+          3,
+          50
+        ]
+      ]
+    },
+    "kok-IN": {
+      "rows": 60,
+      "scam_precision": 0.909091,
+      "scam_recall": 0.888889,
+      "scam_f1": 0.898876,
+      "scam_support": 45,
+      "confusion_matrix": [
+        [
+          11,
+          4
+        ],
+        [
+          5,
+          40
+        ]
+      ]
+    },
+    "ks-IN": {
+      "rows": 51,
+      "scam_precision": 0.942857,
+      "scam_recall": 0.970588,
+      "scam_f1": 0.956522,
+      "scam_support": 34,
+      "confusion_matrix": [
+        [
+          15,
+          2
+        ],
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    "mai-IN": {
+      "rows": 56,
+      "scam_precision": 0.925,
+      "scam_recall": 0.973684,
+      "scam_f1": 0.948718,
+      "scam_support": 38,
+      "confusion_matrix": [
+        [
+          15,
+          3
+        ],
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    "ml-IN": {
+      "rows": 72,
+      "scam_precision": 0.644068,
+      "scam_recall": 0.95,
+      "scam_f1": 0.767677,
+      "scam_support": 40,
+      "confusion_matrix": [
+        [
+          11,
+          21
+        ],
+        [
+          2,
+          38
+        ]
+      ]
+    },
+    "mni-IN": {
+      "rows": 50,
+      "scam_precision": 0.842105,
+      "scam_recall": 0.969697,
+      "scam_f1": 0.901408,
+      "scam_support": 33,
+      "confusion_matrix": [
+        [
+          11,
+          6
+        ],
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    "mr-IN": {
+      "rows": 101,
+      "scam_precision": 0.722892,
+      "scam_recall": 1.0,
+      "scam_f1": 0.839161,
+      "scam_support": 60,
+      "confusion_matrix": [
+        [
+          18,
+          23
+        ],
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    "ne-IN": {
+      "rows": 51,
+      "scam_precision": 0.902439,
+      "scam_recall": 0.973684,
+      "scam_f1": 0.936709,
+      "scam_support": 38,
+      "confusion_matrix": [
+        [
+          9,
+          4
+        ],
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    "od-IN": {
+      "rows": 25,
+      "scam_precision": 0.958333,
+      "scam_recall": 1.0,
+      "scam_f1": 0.978723,
+      "scam_support": 23,
+      "confusion_matrix": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          23
+        ]
+      ]
+    },
+    "pa-IN": {
+      "rows": 67,
+      "scam_precision": 0.830189,
+      "scam_recall": 0.956522,
+      "scam_f1": 0.888889,
+      "scam_support": 46,
+      "confusion_matrix": [
+        [
+          12,
+          9
+        ],
+        [
+          2,
+          44
+        ]
+      ]
+    },
+    "sa-IN": {
+      "rows": 45,
+      "scam_precision": 0.971429,
+      "scam_recall": 0.944444,
+      "scam_f1": 0.957746,
+      "scam_support": 36,
+      "confusion_matrix": [
+        [
+          8,
+          1
+        ],
+        [
+          2,
+          34
+        ]
+      ]
+    },
+    "sat-IN": {
+      "rows": 59,
+      "scam_precision": 0.933333,
+      "scam_recall": 0.933333,
+      "scam_f1": 0.933333,
+      "scam_support": 45,
+      "confusion_matrix": [
+        [
+          11,
+          3
+        ],
+        [
+          3,
+          42
+        ]
+      ]
+    },
+    "sd-IN": {
+      "rows": 63,
+      "scam_precision": 0.911111,
+      "scam_recall": 0.911111,
+      "scam_f1": 0.911111,
+      "scam_support": 45,
+      "confusion_matrix": [
+        [
+          14,
+          4
+        ],
+        [
+          4,
+          41
+        ]
+      ]
+    },
+    "ta-IN": {
+      "rows": 128,
+      "scam_precision": 0.681416,
+      "scam_recall": 0.974684,
+      "scam_f1": 0.802083,
+      "scam_support": 79,
+      "confusion_matrix": [
+        [
+          13,
+          36
+        ],
+        [
+          2,
+          77
+        ]
+      ]
+    },
+    "te-IN": {
+      "rows": 142,
+      "scam_precision": 0.758929,
+      "scam_recall": 0.955056,
+      "scam_f1": 0.845771,
+      "scam_support": 89,
+      "confusion_matrix": [
+        [
+          26,
+          27
+        ],
+        [
+          4,
+          85
+        ]
+      ]
+    },
+    "ur-IN": {
+      "rows": 69,
+      "scam_precision": 0.75,
+      "scam_recall": 0.976744,
+      "scam_f1": 0.848485,
+      "scam_support": 43,
+      "confusion_matrix": [
+        [
+          12,
+          14
+        ],
+        [
+          1,
+          42
+        ]
+      ]
+    }
+  },
+  "test_per_vector": {
+    "digital_arrest": {
+      "rows": 270,
+      "scam_precision": 0.878431,
+      "scam_recall": 0.953191,
+      "scam_f1": 0.914286,
+      "scam_support": 235,
+      "confusion_matrix": [
+        [
+          4,
+          31
+        ],
+        [
+          11,
+          224
+        ]
+      ]
+    },
+    "fake_courier_customs": {
+      "rows": 114,
+      "scam_precision": 0.81982,
+      "scam_recall": 0.978495,
+      "scam_f1": 0.892157,
+      "scam_support": 93,
+      "confusion_matrix": [
+        [
+          1,
+          20
+        ],
+        [
+          2,
+          91
+        ]
+      ]
+    },
+    "fake_customer_care": {
+      "rows": 232,
+      "scam_precision": 0.87963,
+      "scam_recall": 0.959596,
+      "scam_f1": 0.917874,
+      "scam_support": 198,
+      "confusion_matrix": [
+        [
+          8,
+          26
+        ],
+        [
+          8,
+          190
+        ]
+      ]
+    },
+    "kyc_utility_panic": {
+      "rows": 166,
+      "scam_precision": 0.856209,
+      "scam_recall": 0.977612,
+      "scam_f1": 0.912892,
+      "scam_support": 134,
+      "confusion_matrix": [
+        [
+          10,
+          22
+        ],
+        [
+          3,
+          131
+        ]
+      ]
+    },
+    "legit_bank_alert": {
+      "rows": 66,
+      "scam_precision": 0.0,
+      "scam_recall": 0.0,
+      "scam_f1": 0.0,
+      "scam_support": 0,
+      "confusion_matrix": [
+        [
+          64,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "legit_delivery_otp": {
+      "rows": 63,
+      "scam_precision": 0.0,
+      "scam_recall": 0.0,
+      "scam_f1": 0.0,
+      "scam_support": 0,
+      "confusion_matrix": [
+        [
+          57,
+          6
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "legit_electricity_reminder": {
+      "rows": 73,
+      "scam_precision": 0.0,
+      "scam_recall": 0.0,
+      "scam_f1": 0.0,
+      "scam_support": 0,
+      "confusion_matrix": [
+        [
+          63,
+          10
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "legit_family_transfer": {
+      "rows": 107,
+      "scam_precision": 0.0,
+      "scam_recall": 0.0,
+      "scam_f1": 0.0,
+      "scam_support": 0,
+      "confusion_matrix": [
+        [
+          77,
+          30
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "predatory_loan_app": {
+      "rows": 94,
+      "scam_precision": 0.777778,
+      "scam_recall": 0.945946,
+      "scam_f1": 0.853659,
+      "scam_support": 74,
+      "confusion_matrix": [
+        [
+          0,
+          20
+        ],
+        [
+          4,
+          70
+        ]
+      ]
+    },
+    "qr_code_refund_trap": {
+      "rows": 145,
+      "scam_precision": 0.814286,
+      "scam_recall": 0.974359,
+      "scam_f1": 0.88716,
+      "scam_support": 117,
+      "confusion_matrix": [
+        [
+          2,
+          26
+        ],
+        [
+          3,
+          114
+        ]
+      ]
+    },
+    "social_friend_emergency": {
+      "rows": 105,
+      "scam_precision": 0.670213,
+      "scam_recall": 0.926471,
+      "scam_f1": 0.777778,
+      "scam_support": 68,
+      "confusion_matrix": [
+        [
+          6,
+          31
+        ],
+        [
+          5,
+          63
+        ]
+      ]
+    },
+    "upi_collect_trap": {
+      "rows": 197,
+      "scam_precision": 0.830409,
+      "scam_recall": 0.95302,
+      "scam_f1": 0.8875,
+      "scam_support": 149,
+      "confusion_matrix": [
+        [
+          19,
+          29
+        ],
+        [
+          7,
+          142
+        ]
+      ]
+    },
+    "whatsapp_stock_task": {
+      "rows": 251,
+      "scam_precision": 0.843478,
+      "scam_recall": 0.946341,
+      "scam_f1": 0.891954,
+      "scam_support": 205,
+      "confusion_matrix": [
+        [
+          10,
+          36
+        ],
+        [
+          11,
+          194
+        ]
+      ]
+    }
+  },
+  "test_per_script_mode": {
+    "native_script": {
+      "rows": 1239,
+      "scam_precision": 0.828746,
+      "scam_recall": 0.951991,
+      "scam_f1": 0.886104,
+      "scam_support": 854,
+      "confusion_matrix": [
+        [
+          217,
+          168
+        ],
+        [
+          41,
+          813
+        ]
+      ]
+    },
+    "romanized_codemix": {
+      "rows": 644,
+      "scam_precision": 0.770398,
+      "scam_recall": 0.968974,
+      "scam_f1": 0.858351,
+      "scam_support": 419,
+      "confusion_matrix": [
+        [
+          104,
+          121
+        ],
+        [
+          13,
+          406
+        ]
+      ]
+    }
+  },
+  "inference_benchmark": {
+    "rows": 1883,
+    "repeats": 5,
+    "mean_batch_ms": 3219.925,
+    "median_batch_ms": 2942.606,
+    "mean_ms_per_message": 1.709998
+  },
+  "exact_duplicate_audit": [
+    {
+      "name": "train",
+      "rows_before": 32858,
+      "rows_after": 32767,
+      "exact_conflicting_text_groups": 5
+    },
+    {
+      "name": "validation",
+      "rows_before": 2148,
+      "rows_after": 2148,
+      "exact_conflicting_text_groups": 0
+    },
+    {
+      "name": "test",
+      "rows_before": 1883,
+      "rows_after": 1883,
+      "exact_conflicting_text_groups": 0
+    },
+    {
+      "name": "augmented_train",
+      "rows_before": 34347,
+      "rows_after": 34347,
+      "exact_conflicting_text_groups": 5
+    }
+  ],
+  "caveats": [
+    "BSIS is synthetic and must not be treated as independent real-world proof.",
+    "The published splits are lineage-grouped; avoid claiming conversation-level independence beyond the lineage grouping.",
+    "The scam score is a classifier score, not calibrated fraud probability."
+  ],
+  "software": {
+    "python": "3.14.8",
+    "scikit_learn": "1.9.1",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1"
+  }
+}

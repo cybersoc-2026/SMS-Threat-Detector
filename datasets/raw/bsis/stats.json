@@ -1,0 +1,83 @@
+{
+  "classifier_rows": {
+    "train": 32858,
+    "validation": 2148,
+    "test": 1883
+  },
+  "chatml_rows": {
+    "train": 28957,
+    "validation": 1905,
+    "test": 1607
+  },
+  "label_balance": {
+    "classifier": {
+      "0": 14598,
+      "1": 22291
+    }
+  },
+  "languages": [
+    "as-IN",
+    "bn-IN",
+    "brx-IN",
+    "doi-IN",
+    "en-IN",
+    "gu-IN",
+    "hi-IN",
+    "kn-IN",
+    "kok-IN",
+    "ks-IN",
+    "mai-IN",
+    "ml-IN",
+    "mni-IN",
+    "mr-IN",
+    "ne-IN",
+    "od-IN",
+    "pa-IN",
+    "sa-IN",
+    "sat-IN",
+    "sd-IN",
+    "ta-IN",
+    "te-IN",
+    "ur-IN"
+  ],
+  "language_count": 23,
+  "vectors": [
+    "digital_arrest",
+    "fake_courier_customs",
+    "fake_customer_care",
+    "kyc_utility_panic",
+    "legit_bank_alert",
+    "legit_delivery_otp",
+    "legit_electricity_reminder",
+    "legit_family_transfer",
+    "predatory_loan_app",
+    "qr_code_refund_trap",
+    "social_friend_emergency",
+    "upi_collect_trap",
+    "whatsapp_stock_task"
+  ],
+  "vector_counts": {
+    "qr_code_refund_trap": 3728,
+    "fake_customer_care": 3692,
+    "digital_arrest": 3464,
+    "whatsapp_stock_task": 3374,
+    "social_friend_emergency": 3155,
+    "upi_collect_trap": 3104,
+    "fake_courier_customs": 3077,
+    "predatory_loan_app": 2915,
+    "kyc_utility_panic": 2830,
+    "legit_electricity_reminder": 2196,
+    "legit_family_transfer": 1915,
+    "legit_bank_alert": 1820,
+    "legit_delivery_otp": 1619
+  },
+  "script_modes": {
+    "native_script": 24242,
+    "romanized_codemix": 12647
+  },
+  "hard_examples": 8578,
+  "hard_examples_by_label": {
+    "0": 5225,
+    "1": 3353
+  }
+}

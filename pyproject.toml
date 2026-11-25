@@ -1,0 +1,31 @@
+[project]
+name = "bharat-ai-soc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "23f2001306", email = "23f2001306@ds.study.iitm.ac.in" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "accelerate>=1.16.0",
+    "datasets>=5.2.0",
+    "joblib>=1.6.0",
+    "scikit-learn>=1.9.1",
+    "sentence-transformers>=6.3.0",
+    "tldextract>=5.4.0",
+    "torch>=2.15.0",
+    "transformers>=5.24.0",
+    "xgboost>=3.4.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
