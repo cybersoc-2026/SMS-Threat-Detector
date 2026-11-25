@@ -102,9 +102,6 @@ These binaries and model files are not included. The LLM only writes an explanat
 │   └── DATASET_MANIFEST.json  # Current source inventory/status
 └── tests/
 ```
-
-`train_sms_tfidf.py` is an earlier ham/spam baseline experiment; the current integrated pipeline uses the scam/safe model produced by `train_bsis.py`.
-
 ## Data and evaluation notes
 
 - BSIS is a **synthetic, multilingual** classifier benchmark. Its lineage-grouped split makes the experiment more reproducible, but results do not establish real-world fraud-detection performance.
